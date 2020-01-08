@@ -10,6 +10,7 @@ package com.mycompany.es12;
  * @author tss
  */
 public class Persona {
+
     private String nome;
     private String cognome;
     private int annoNascita;
@@ -25,7 +26,7 @@ public class Persona {
     public int getAnnoNascita() {
         return annoNascita;
     }
-   
+
     public Persona(String nome, String cognome, int annoNascita) {
         this.nome = nome;
         this.cognome = cognome;

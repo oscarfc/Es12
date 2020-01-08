@@ -7,6 +7,7 @@ package com.mycompany.es12;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Optional;
 import javax.swing.JOptionPane;
 
 /**
@@ -54,37 +55,37 @@ public class GestionePersona {
         persone.add(new Persona(nome, cognome, annoNascita));
     }
 
-    public Persona getPersona(int indice) {
-        return persone.get(indice);
+    public Optional<Persona> getPersona(int indice) {
+        return Optional.of(persone.get(indice));
     }
 
     public int getNumPersone() {
         return persone.size();
     }
 
-    public void stampaSheda(int i) {
+    public void stampaScheda(int i) {
         int eta = LocalDateTime.now().getYear() - persone.get(i).getAnnoNascita();
-        JOptionPane.showMessageDialog(null, "nome:         " + persone.get(i).getNome() + 
-                                          "\ncognome:      " + persone.get(i).getCognome() + 
-                                          "\nanno nascita: " + persone.get(i).getAnnoNascita() + 
-                                          "\netà:          " + eta);  
+        JOptionPane.showMessageDialog(null, "nome:         " + persone.get(i).getNome()
+                + "\ncognome:      " + persone.get(i).getCognome()
+                + "\nanno nascita: " + persone.get(i).getAnnoNascita()
+                + "\netà:          " + eta);
     }
-    
-    public void stampaShedaIF(int i) {
+
+    public void stampaSchedaIF(int i) {
         int eta = LocalDateTime.now().getYear() - persone.get(i).getAnnoNascita();
         String tipo;
-        
+
         if (eta >= 0 && eta < 19) {
             tipo = "giovane";
         } else if (eta >= 60) {
             tipo = "senior";
         } else {
             tipo = "adulto";
-        } 
-        JOptionPane.showMessageDialog(null, "nome:         " + persone.get(i).getNome() + 
-                                          "\ncognome:      " + persone.get(i).getCognome() + 
-                                          "\nanno nascita: " + persone.get(i).getAnnoNascita() + 
-                                          "\netà:          " + eta +
-                                          "\ntipo:         " + tipo);  
+        }
+        JOptionPane.showMessageDialog(null, "nome:         " + persone.get(i).getNome()
+                + "\ncognome:      " + persone.get(i).getCognome()
+                + "\nanno nascita: " + persone.get(i).getAnnoNascita()
+                + "\netà:          " + eta
+                + "\ntipo:         " + tipo);
     }
 }
